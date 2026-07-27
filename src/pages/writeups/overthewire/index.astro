@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+const writeups = (await getCollection("writeups"))
+  .filter((entry) => entry.data.platform === "OverTheWire")
+  .sort((a, b) => a.data.level - b.data.level);
+const base = import.meta.env.BASE_URL;
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "OverTheWire",
+    description: "Browse OverTheWire challenge writeups.",
+  }}
+>
+  <p>{writeups.length} {writeups.length === 1 ? "writeup" : "writeups"}</p>
+
+  <div class="writeup-grid">
+    {writeups.map((entry) => (
+      <a class="writeup-card" href={`${base}/writeups/${entry.id}/`}>
+        <div class="card-meta">
+          <span>{entry.data.game} · Level {entry.data.level}</span>
+          <span class={`difficulty difficulty-${entry.data.difficulty.toLowerCase()}`}>
+            {entry.data.difficulty}
+          </span>
+        </div>
+        <h2>{entry.data.title}</h2>
+        <p>{entry.data.description}</p>
+        <div class="tag-row">
+          {entry.data.tags.map((tag) => <span class="tag">#{tag}</span>)}
+        </div>
+      </a>
+    ))}
+  </div>
+</StarlightPage>

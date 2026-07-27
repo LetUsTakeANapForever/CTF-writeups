@@ -1,0 +1,46 @@
+---
+title: "Level 1"
+description: "Describe the challenge goal and what the reader will learn in 20–180 characters."
+date: 2026-07-27
+platform: OverTheWire
+game: Bandit
+level: 1
+difficulty: Easy
+category: Linux
+tags:
+  - SSH
+  - Linux
+---
+
+## Challenge
+
+State the objective without giving away the solution.
+
+## Enumeration
+
+Document observations and the commands used to gather them.
+
+```sh title="Terminal"
+# command here
+```
+
+## Exploitation
+
+Explain the reasoning, then show the minimal reproducible steps.
+
+```sh title="Terminal"
+# command here
+```
+
+Redact the real flag or password in public writeups.
+
+:::
+
+## Lessons learned
+
+:::tip[Key takeaways]
+
+- First takeaway
+- Second takeaway
+
+:::

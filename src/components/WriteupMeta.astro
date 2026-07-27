@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props { entry: CollectionEntry<"writeups">; }
+const { entry } = Astro.props;
+const level = entry.data.level !== undefined ? `Level ${entry.data.level}` : null;
+const date = entry.data.date.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<header class="writeup-meta">
+  <div class="meta-row">
+    <span class="meta-pill platform">{entry.data.platform}</span>
+    {level && <span class="meta-pill">{level}</span>}
+    <span class={`meta-pill difficulty difficulty-${entry.data.difficulty.toLowerCase()}`}>{entry.data.difficulty}</span>
+    <time datetime={entry.data.date.toISOString()}>{date}</time>
+  </div>
+  <div class="tag-row" aria-label="Tags">{entry.data.tags.map((tag) => <span class="tag">#{tag}</span>)}</div>
+</header>

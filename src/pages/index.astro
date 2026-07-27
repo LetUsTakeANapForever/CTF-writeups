@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+const writeups = (await getCollection("writeups")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const recentWriteups = writeups.slice(0, 3);
+const platforms = new Set(writeups.map((entry) => entry.data.platform));
+const base = import.meta.env.BASE_URL;
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "Nidchamon's CTF Journey",
+    description: "Practical CTF walkthroughs, commands, and lessons learned.",
+    template: "splash",
+  }}
+>
+  <section class="hero">
+    <p class="eyebrow">CAPTURE THE FLAG · LEARN BY DOING</p>
+    <h1>Break things.<br /><span>Understand why.</span></h1>
+    <p class="hero-copy">Clear, repeatable writeups from our CTF journey—focused on the commands, reasoning, and lessons that make each challenge click.</p>
+    <div class="hero-actions">
+      <a class="primary-action" href={`${base}/writeups/`}>Browse writeups <span aria-hidden="true">→</span></a>
+      <a class="secondary-action" href="https://github.com/LetUsTakeANapForever/CTF-writeups">View on GitHub</a>
+    </div>
+    <dl class="stats" aria-label="Collection statistics">
+      <div></div>
+      <div><dt>{writeups.length}</dt><dd>Writeups</dd></div>
+      <div><dt>{platforms.size}</dt><dd>Platforms</dd></div>
+      <div><dt>∞</dt><dd>Things to learn</dd></div>
+    </dl>
+  </section>
+
+  <section class="home-section" aria-labelledby="platforms-title">
+    <div class="section-heading"><p class="eyebrow">CHALLENGE LIBRARY</p><h2 id="platforms-title">Platforms</h2></div>
+    <div class="platform-grid">
+      <a class="platform-card" href={`${base}/writeups/overthewire/`}>
+        <span class="platform-icon" aria-hidden="true">&gt;_</span>
+        <span><strong>OverTheWire</strong><small>Linux fundamentals and security concepts</small></span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-section" aria-labelledby="recent-title">
+    <div class="section-heading"><p class="eyebrow">LATEST NOTES</p><h2 id="recent-title">Recent writeups</h2></div>
+    <div class="writeup-grid">
+      {recentWriteups.map((entry) => (
+        <a class="writeup-card" href={`${base}/writeups/${entry.id}/`}>
+          <div class="card-meta">
+            <span>{entry.data.platform}</span>
+            <span class={`difficulty difficulty-${entry.data.difficulty.toLowerCase()}`}>{entry.data.difficulty}</span>
+          </div>
+          <h3>{entry.data.title}</h3>
+          <p>{entry.data.description}</p>
+          <time datetime={entry.data.date.toISOString()}>{entry.data.date.toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" })}</time>
+        </a>
+      ))}
+    </div>
+  </section>
+</StarlightPage>
