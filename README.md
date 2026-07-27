@@ -1,43 +1,31 @@
-# Astro Starter Kit: Minimal
+# CTF Writeups
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This repository contains my notes and writeups from capture-the-flag challenges. Each writeup focuses on the reasoning, commands, and techniques used to solve a challenge rather than only presenting the final answer.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The published site is available at:
 
-## 🚀 Project Structure
+https://letustakeanapforever.github.io/CTF-writeups/
 
-Inside of your Astro project, you'll see the following folders and files:
+## Current writeups
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### OverTheWire
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- Bandit
+  - Level 0: connecting to the Bandit server with SSH
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+More writeups will be added as I work through new levels, games, and platforms.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Topics
 
-## 🧞 Commands
+The writeups may cover:
 
-All commands are run from the root of the project, from a terminal:
+- Linux and command-line fundamentals
+- Web security
+- Cryptography
+- Digital forensics
+- Binary exploitation
+- Miscellaneous CTF techniques
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Disclaimer
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+These writeups are provided for educational purposes. Only test systems and challenges that you own or have explicit permission to access. Techniques described here should not be used against unauthorized targets.
