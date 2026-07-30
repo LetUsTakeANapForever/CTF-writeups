@@ -1,10 +1,10 @@
 ---
-title: "Level 0"
-description: "Connect to the first Bandit level over SSH and retrieve the password for the next challenge."
-date: 2026-07-27
+title: "Level 1 → Level 2"
+description: "Learn to read a dashed filename file."
+date: 2026-07-30
 platform: OverTheWire
 game: Bandit
-level: "0"
+level: "1 → 2"
 difficulty: Easy
 category: Linux
 tags:
@@ -22,19 +22,17 @@ Connect to the Bandit game server over SSH and locate the password for the next 
 The challenge starts with SSH credentials for `bandit0`. Connect to the non-standard SSH port:
 
 ```sh title="Terminal"
-ssh -p 2220 bandit0@bandit.labs.overthewire.org 
-```
-```sh title="Terminal"
-bandit@bandit.labs.overthewire.org's password: bandit0
+ssh -p 2220 bandit2@bandit.labs.overthewire.org 
 ```
 
 ## Exploitation
 
-After logging in, list the files and read the `readme` file:
+After logging in, list the files and read the `-` file:
 
 ```sh title="Terminal"
 ls
-cat readme
+
+cat./-
 ```
 
 The file contains the password needed to access the next Bandit level.
@@ -45,7 +43,6 @@ The real password is intentionally omitted from this public example. Run the com
 
 :::tip[Key takeaways]
 
-- SSH can connect on a custom port with the `-p` option.
-- ssh -p `<PORT>` `<USERNAME@HOST>`
+- Use `./` before a dashed filename (like `-file.txt`) because the terminal command will mistake the leading dash for a command option or flag instead of a file name
 
 :::
