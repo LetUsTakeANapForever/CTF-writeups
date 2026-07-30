@@ -1,10 +1,10 @@
 ---
-title: "Level 1 → Level 2"
-description: "Learn to read a dashed filename file."
+title: "Level 2 → Level 3"
+description: "Learn to read a filename with spaces file."
 date: 2026-07-30
 platform: OverTheWire
 game: Bandit
-level: "1 → 2"
+level: "2 → 3"
 difficulty: Easy
 category: Linux
 tags:
@@ -27,12 +27,17 @@ ssh -p 2220 bandit2@bandit.labs.overthewire.org
 
 ## Exploitation
 
-After logging in, list the files and read the `-` file:
+After logging in, list the files and read the `--spaces in this filename--` file:
 
 ```sh title="Terminal"
-ls
+cat ./"--spaces in this filename--"
+```
 
-cat./-
+or
+
+
+```sh title="Terminal"
+cat ./--spaces\ in\ this\ filename--
 ```
 
 The file contains the password needed to access the next Bandit level.
@@ -43,6 +48,11 @@ The real password is intentionally omitted from this public example. Run the com
 
 :::tip[Key takeaways]
 
-- Use `./` before a dashed filename (like `-file.txt`) because the terminal command will mistake the leading dash for a command option or flag instead of a file name
+To read filename with spaces
+
+- Either use double quotes `""` to wrap filename or blackslash (escape character) `\` between each space.
+- Both ways force the shell to treat the spaces as literal characters rather than break points.
+- Blackslash tells the shell: Treat the very next character literally. Do not use it as a special rule or delimiter.
+- Double quotes turn off word splitting for everything inside them, preserving whitespace.
 
 :::

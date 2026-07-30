@@ -1,10 +1,10 @@
 ---
-title: "Level 0"
-description: "Connect to the first Bandit level over SSH and retrieve the password for the next challenge."
-date: 2026-07-27
+title: "Level 0 → Level 1"
+description: "Find `readme` file and read it."
+date: 2026-07-30
 platform: OverTheWire
 game: Bandit
-level: "0"
+level: "0 → 1"
 difficulty: Easy
 category: Linux
 tags:
@@ -24,9 +24,6 @@ The challenge starts with SSH credentials for `bandit0`. Connect to the non-stan
 ```sh title="Terminal"
 ssh -p 2220 bandit0@bandit.labs.overthewire.org 
 ```
-```sh title="Terminal"
-bandit@bandit.labs.overthewire.org's password: bandit0
-```
 
 ## Exploitation
 
@@ -34,6 +31,7 @@ After logging in, list the files and read the `readme` file:
 
 ```sh title="Terminal"
 ls
+
 cat readme
 ```
 
@@ -45,7 +43,7 @@ The real password is intentionally omitted from this public example. Run the com
 
 :::tip[Key takeaways]
 
-- SSH can connect on a custom port with the `-p` option.
-- ssh -p `<PORT>` `<USERNAME@HOST>`
+- `cat` is a command for viewing, creating, and combining file contents.
+- syntax: cat `<file_name>` 
 
 :::
