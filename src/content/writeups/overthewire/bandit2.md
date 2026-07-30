@@ -19,7 +19,7 @@ Connect to the Bandit game server over SSH and locate the password for the next 
 
 ## Enumeration
 
-The challenge starts with SSH credentials for `bandit0`. Connect to the non-standard SSH port:
+Connect to the non-standard SSH port:
 
 ```sh title="Terminal"
 ssh -p 2220 bandit2@bandit.labs.overthewire.org 

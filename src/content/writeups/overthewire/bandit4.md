@@ -1,10 +1,10 @@
 ---
-title: "Level 3 → Level 4"
-description: "Learn to explore a hidden file."
+title: "Level 4 → Level 5"
+description: "Find the only human-readable file in the inhere directory"
 date: 2026-07-30
 platform: OverTheWire
 game: Bandit
-level: "3 → 4"
+level: "4 → 5"
 difficulty: Easy
 category: Linux
 tags:
@@ -22,20 +22,28 @@ Connect to the Bandit game server over SSH and locate the password for the next 
 Connect to the non-standard SSH port:
 
 ```sh title="Terminal"
-ssh -p 2220 bandit3@bandit.labs.overthewire.org 
+ssh -p 2220 bandit4@bandit.labs.overthewire.org 
 ```
 
 ## Exploitation
 
-After logging in, list the files in `inhere` directory to discover a hidden file:
+After logging in:
 
 ```sh title="Terminal"
 cd inhere
 
-ls -a
+file ./-file01
+
+.
+.
+.
+
+file ./-file07
 ```
 
-Then use `cat` command to read the file.
+Keep using `file` command to check if it's written in ASCII file (human-readable file).
+
+Then, I finally found the file: -file07.
 
 It contains the password needed to access the next Bandit level.
 
@@ -45,6 +53,7 @@ The real password is intentionally omitted from this public example. Run the com
 
 :::tip[Key takeaways]
 
-- ls -a: the flag `a` means all. So it will show all files, including hidden ones.
+- `file` command is used to identify file type.
+- ASCII is a standard text file containing only human-readable characters.
 
 :::
