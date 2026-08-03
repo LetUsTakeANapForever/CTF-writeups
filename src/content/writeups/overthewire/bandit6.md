@@ -1,6 +1,6 @@
 ---
 title: "Level 6 → Level 7"
-description: ""
+description: "Learn about flags"
 date: 2026-08-03
 platform: OverTheWire
 game: Bandit
