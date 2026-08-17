@@ -22,7 +22,7 @@ Connect to the Bandit game server over SSH and locate the password for the next 
 Connect to the non-standard SSH port:
 
 ```sh title="Terminal"
-ssh -p 2220 bandit13@bandit.labs.overthewire.org 
+ssh -p 2220 bandit14@bandit.labs.overthewire.org 
 ```
 
 ## Exploitation

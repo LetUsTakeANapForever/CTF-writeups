@@ -1,10 +1,10 @@
 ---
-title: "Level 14 → Level 15"
+title: "Level 15 → Level 16"
 description: "Learn about connecting to a secure server using OpenSSL"
 date: 2026-08-14
 platform: OverTheWire
 game: Bandit
-level: "14 → 15"
+level: "15 → 16"
 difficulty: Easy
 category: Linux
 tags:
@@ -26,7 +26,7 @@ So basically, the meaning is, by connecting to the server and submiting the pass
 Connect to the non-standard SSH port:
 
 ```sh title="Terminal"
-ssh -p 2220 bandit14@bandit.labs.overthewire.org 
+ssh -p 2220 bandit15@bandit.labs.overthewire.org 
 ```
 
 ## Exploitation
