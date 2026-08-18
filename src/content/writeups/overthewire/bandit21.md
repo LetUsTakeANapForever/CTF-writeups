@@ -1,7 +1,7 @@
 ---
 title: "Level 21 -> Level 22"
 description: "Learn about cronjob."
-date: 2026-08-
+date: 2026-08-18
 platform: OverTheWire
 game: Bandit
 level: "21 -> 22"

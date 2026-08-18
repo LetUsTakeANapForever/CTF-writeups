@@ -1,7 +1,7 @@
 ---
 title: "Level 22 -> Level 23"
 description: "Learn how cron jobs can be reversed."
-date: 2026-08-
+date: 2026-08-18
 platform: OverTheWire
 game: Bandit
 level: "22 -> 23"
