@@ -1,6 +1,6 @@
 ---
 title: "Level 26 -> Level 27"
-description: "Learn how"
+description: "Learn about setuid."
 date: 2026-08-18
 platform: OverTheWire
 game: Bandit
