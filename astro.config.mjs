@@ -189,6 +189,11 @@ export default defineConfig({
                   link: "/writeups/overthewire/bandit31/",
                   badge: "Easy",
                 },
+                {
+                  label: "Level 32 → Level 33",
+                  link: "/writeups/overthewire/bandit32/",
+                  badge: "Easy",
+                },
               ],
             }
           ],
