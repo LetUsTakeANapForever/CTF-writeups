@@ -9,7 +9,7 @@ const writeups = defineCollection({
     description: z.string().min(5).max(180),
     date: z.date(),
     platform: z.enum(["OverTheWire"]),
-    game: z.enum(["Bandit"]),
+    game: z.enum(["Bandit", "Natas"]),
     level: z.string().min(1),
     difficulty: z.enum(["Easy", "Medium", "Hard"]),
     category: z.enum(["Linux", "Web", "Cryptography", "Forensics", "Pwn", "Misc"]),

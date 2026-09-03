@@ -22,7 +22,7 @@ export default defineConfig({
           items: [
             {
               label: "Bandit",
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: "Level 0",
@@ -195,7 +195,28 @@ export default defineConfig({
                   badge: "Easy",
                 },
               ],
-            }
+            },
+            {
+              label: "Natas",
+              collapsed: false,
+              items: [
+                {
+                  label: "Level 0 → Level 1",
+                  link: "/writeups/overthewire/natas0/",
+                  badge: "Easy",
+                },
+                {
+                  label: "Level 1 → Level 2",
+                  link: "/writeups/overthewire/natas1/",
+                  badge: "Easy",
+                },
+                {
+                  label: "Level 2 → Level 3",
+                  link: "/writeups/overthewire/natas2/",
+                  badge: "Easy",
+                },
+              ],
+            },
           ],
         },
       ],
