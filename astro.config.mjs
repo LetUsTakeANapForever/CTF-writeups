@@ -201,18 +201,33 @@ export default defineConfig({
               collapsed: false,
               items: [
                 {
-                  label: "Level 0 → Level 1",
+                  label: "Level 0",
                   link: "/writeups/overthewire/natas0/",
                   badge: "Easy",
                 },
                 {
-                  label: "Level 1 → Level 2",
+                  label: "Level 0 → Level 1",
                   link: "/writeups/overthewire/natas1/",
                   badge: "Easy",
                 },
                 {
-                  label: "Level 2 → Level 3",
+                  label: "Level 1 → Level 2",
                   link: "/writeups/overthewire/natas2/",
+                  badge: "Easy",
+                },
+                {
+                  label: "Level 2 → Level 3",
+                  link: "/writeups/overthewire/natas3/",
+                  badge: "Easy",
+                },
+                {
+                  label: "Level 3 → Level 4",
+                  link: "/writeups/overthewire/natas4/",
+                  badge: "Easy",
+                },
+                {
+                  label: "Level 4 → Level 5",
+                  link: "/writeups/overthewire/natas5/",
                   badge: "Easy",
                 },
               ],
