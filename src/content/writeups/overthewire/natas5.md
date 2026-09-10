@@ -1,10 +1,10 @@
 ---
-title: "Level 5 -> Level 6"
+title: "Level 4 -> Level 5"
 description: "Bypass a weak login check by changing a client-side cookie value."
 date: 2026-09-09
 platform: OverTheWire
 game: Natas
-level: "5 -> 6"
+level: "4 -> 5"
 difficulty: Easy
 category: Web
 tags:

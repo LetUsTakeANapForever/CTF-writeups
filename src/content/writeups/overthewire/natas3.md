@@ -1,10 +1,10 @@
 ---
-title: "Level 3 -> Level 4"
+title: "Level 2 -> Level 3"
 description: "Use robots.txt to find a hidden directory and recover the next password."
 date: 2026-09-09
 platform: OverTheWire
 game: Natas
-level: "3 -> 4"
+level: "2 -> 3"
 difficulty: Easy
 category: Web
 tags:

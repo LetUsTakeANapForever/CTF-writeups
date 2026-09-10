@@ -4,7 +4,7 @@ description: "Bypass a weak Referer header check by editing the request in Burp 
 date: 2026-09-09
 platform: OverTheWire
 game: Natas
-level: "2 -> 3"
+level: "3 -> 4"
 difficulty: Easy
 category: Web
 tags:

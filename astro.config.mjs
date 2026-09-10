@@ -230,6 +230,16 @@ export default defineConfig({
                   link: "/writeups/overthewire/natas5/",
                   badge: "Easy",
                 },
+                {
+                  label: "Level 5 → Level 6",
+                  link: "/writeups/overthewire/natas6/",
+                  badge: "Easy",
+                },
+                {
+                  label: "Level 6 → Level 7",
+                  link: "/writeups/overthewire/natas7/",
+                  badge: "Easy",
+                },
               ],
             },
           ],
