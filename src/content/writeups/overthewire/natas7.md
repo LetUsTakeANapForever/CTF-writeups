@@ -1,97 +1,91 @@
 ---
-title: "Level 8 -> Level 9"
-description: "Reverse a PHP encoding function to recover the secret and pass the form check."
+title: "Level 7 -> Level 8"
+description: "Exploit a file include parameter to read the next level password from the server filesystem."
 date: 2026-09-10
 platform: OverTheWire
 game: Natas
-level: "8 -> 9"
+level: "7 -> 8"
 difficulty: Easy
 category: Web
 tags:
   - Web
   - PHP
-  - Encoding
-  - Source Code
+  - Local File Inclusion
+  - DevTools
   - Beginner
 ---
 
 ## Challenge
 
-Log in to Natas level 8 and locate the password for the next level.
+Log in to Natas level 7 and locate the password for the next level.
 
 ```txt title="Credentials"
-Username: natas8
-URL:      http://natas8.natas.labs.overthewire.org
+Username: natas7
+URL:      http://natas7.natas.labs.overthewire.org
 ```
 
 ## Enumeration
 
-If we open the `View sourcecode` link, we can inspect the PHP logic used by the page:
+The page has two links: `Home` and `About`.
 
-```php title="Source code"
-<?
+Clicking either link changes the URL:
 
-$encodedSecret = "3d3d516343746d4d6d6c315669563362";
-
-function encodeSecret($secret) {
-    return bin2hex(strrev(base64_encode($secret)));
-}
-
-if(array_key_exists("submit", $_POST)) {
-    if(encodeSecret($_POST['secret']) == $encodedSecret) {
-    print "Access granted. The password for natas9 is <censored>";
-    } else {
-    print "Wrong secret";
-    }
-}
-?>
+```txt title="Page links"
+http://natas7.natas.labs.overthewire.org/index.php?page=home
+http://natas7.natas.labs.overthewire.org/index.php?page=about
 ```
 
-The application takes our submitted `secret`, passes it into `encodeSecret()`, and compares the result with the hardcoded `$encodedSecret`.
+The important detail is the `page` query parameter. The application appears to load a page based on whatever value is passed into `page`.
 
-The encoding function applies these operations:
+Next, open DevTools and inspect the page HTML. There is a comment with a hint:
 
-```txt title="Encoding order"
-base64_encode -> strrev -> bin2hex
+```html title="HTML hint"
+<!-- hint: password for webuser natas8 is in /etc/natas_webpass/natas8 -->
 ```
 
-To recover the original secret, we need to reverse those operations in the opposite order:
-
-```txt title="Decoding order"
-hex2bin -> strrev -> base64_decode
-```
+That tells us the password file path directly.
 
 ## Exploitation
 
-I used PHP CLI to decode the value:
+Since the application uses the `page` parameter to decide what file to display, try replacing `home` or `about` with the password file path from the hint:
 
-```php title="PHP CLI"
-$encodedSecret = "3d3d516343746d4d6d6c315669563362";
-echo base64_decode(strrev(hex2bin($encodedSecret)));
+```txt title="LFI payload"
+http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8
 ```
 
-The output is the secret:
-
-```txt title="Decoded secret"
-[Secret]
-```
-
-Submit that value in the form.
-
-The page grants access:
+The response includes the password for the next level:
 
 ```txt title="Successful response"
-Access granted. The password for natas9 is [NextLevelPassword]
+[NextLevelPassword]
 ```
 
 The real password is intentionally omitted from this public writeup. Run the steps above to retrieve it yourself.
+
+## Why this works
+
+This is a local file inclusion issue. The server reads a file path from user input and includes or displays that file without safely restricting it to an allowed list of pages.
+
+The intended links use harmless values:
+
+```txt title="Expected values"
+page=home
+page=about
+```
+
+But because the parameter is not properly validated, we can provide an absolute filesystem path instead:
+
+```txt title="Injected file path"
+page=/etc/natas_webpass/natas8
+```
+
+The server then reads that local file and returns its contents in the response.
 
 ## Lessons learned
 
 :::tip[Key takeaways]
 
-- If source code reveals a custom encoding function, read the transformation order carefully.
-- To decode a value, reverse each operation in the opposite order.
-- Encoding is not encryption; values transformed with reversible functions can be recovered.
+- Query parameters can control server-side file loading if the application is built unsafely.
+- HTML comments can reveal useful hints, paths, and implementation details.
+- File include features should use strict allowlists instead of trusting user-provided paths.
 
 :::
