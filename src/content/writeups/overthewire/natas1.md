@@ -1,10 +1,10 @@
 ---
-title: "Level 0 → Level 1"
+title: "Level 0 -> Level 1"
 description: "Bypass a right-click block to read the page's HTML source."
 date: 2026-09-03
 platform: OverTheWire
 game: Natas
-level: "0 → 1"
+level: "0 -> 1"
 difficulty: Easy
 category: Web
 tags:

@@ -1,10 +1,10 @@
 ---
-title: "Level 1 → Level 2"
+title: "Level 1 -> Level 2"
 description: "Discover a hidden directory listing behind a static file reference."
 date: 2026-09-03
 platform: OverTheWire
 game: Natas
-level: "1 → 2"
+level: "1 -> 2"
 difficulty: Easy
 category: Web
 tags:

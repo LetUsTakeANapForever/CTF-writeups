@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { sortWriteupsByGameLevel } from "../../../utils/writeups";
 
 const writeups = (await getCollection("writeups"))
   .filter((entry) => entry.data.platform === "OverTheWire")
-  .sort((a, b) => a.data.level - b.data.level);
+  .sort(sortWriteupsByGameLevel);
 const base = import.meta.env.BASE_URL;
 ---
 

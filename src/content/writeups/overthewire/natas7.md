@@ -1,10 +1,10 @@
 ---
-title: "Level 7 -> Level 8"
+title: "Level 6 -> Level 7"
 description: "Exploit a file include parameter to read the next level password from the server filesystem."
 date: 2026-09-10
 platform: OverTheWire
 game: Natas
-level: "7 -> 8"
+level: "6 -> 7"
 difficulty: Easy
 category: Web
 tags:

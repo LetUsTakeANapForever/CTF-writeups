@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { sortWriteupsByGameLevel } from "../../utils/writeups";
 
-const writeups = (await getCollection("writeups")).sort((a, b) => a.data.level - b.data.level);
+const writeups = (await getCollection("writeups")).sort(sortWriteupsByGameLevel);
 const platforms = [...new Set(writeups.map((entry) => entry.data.platform))];
 const categories = [...new Set(writeups.map((entry) => entry.data.category))];
 const difficulties = [...new Set(writeups.map((entry) => entry.data.difficulty))];
